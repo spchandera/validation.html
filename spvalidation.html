@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        background-color: rgb(135, 158, 222);
+        color: white;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+        color: rgb(217, 40, 40);
+    }
+
+    input[type="submit"] {
+        padding: 9px 21px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    input {
+        display: block;
+        margin: 15px auto;
+        padding: 10px 25px;
+    }
+</style>
+
+<body>
+    <div class="container" onsubmit="return validForm()">
+        <h1>Login Form</h1>
+        <form action="">
+            <input type="text" name="" id="username" placeholder="enter your name">
+            <p id="usererror"></p>
+            <input type="password" placeholder="enter your passsword" name="" id="password">
+            <p id="passerror"></p>
+            <input type="submit" value="save data">
+        </form>
+    </div>
+</body>
+
+<script>
+
+    let username = document.getElementById("username")
+    let password = document.getElementById("password")
+    let done = 1
+    function validForm() {
+        if (username.value == "") {
+            document.getElementById("usererror").innerHTML = "please enter name"
+            done = 0
+        }
+        else if (username.value.length < 5) {
+            document.getElementById("usererror").innerHTML = "please enter long word"
+            done = 0
+        }
+        else {
+            document.getElementById("usererror").innerHTML = ""
+            done = 1
+        }
+
+        if (password.value == "") {
+            document.getElementById("passerror").innerHTML = "enter your password"
+            done = 0
+        }
+        else if (password.value.length < 3) {
+            document.getElementById("passerror").innerHTML = "max 3 char"
+            done = 0
+        }
+        else {
+            document.getElementById("passerror").innerHTML = ""
+            done = 1
+        }
+
+        if (done) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+</script>
+
+</html>
